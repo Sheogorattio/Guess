@@ -7,7 +7,7 @@
 
 #define MAX_LOADSTRING 100
 
-INT Attemts, Number, GuessNumber, Min=1, Max=100;
+INT Attempts, Number, GuessNumber, Min=1, Max=100;
 TCHAR buff[MAX_LOADSTRING];
 
 // Global Variables:
@@ -139,7 +139,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             SetWindowText(hWnd, buff);
             INT rez = MessageBox(0, TEXT("Check title of the main window"), TEXT("Info"), MB_ICONINFORMATION | MB_OK);
             while (1) {
-                Attemts++;
+                Attempts++;
                 GuessNumber = Min + rand() % (Max-Min);
                 wsprintf(buff, TEXT("Is your number greater than %d \n Yes=Greater No=Less Cancel=Equal"), GuessNumber);
                 rez = MessageBox(hWnd, buff, TEXT("Question"), MB_ICONQUESTION | MB_YESNOCANCEL);
@@ -156,11 +156,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     else { break; }
                 }
             }
-            wsprintf(buff, TEXT("It took %d attempt(s). Nice result :)"), Attemts);
+            wsprintf(buff, TEXT("It took %d attempt(s). Nice result :)"), Attempts);
             MessageBox(hWnd, buff, TEXT("Congratulations"), MB_OK | MB_ICONINFORMATION);
             Min = 0;
             Max = 100;
-            Attemts = 0;
+            Attempts = 0;
         }
         break;
      
